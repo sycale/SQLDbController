@@ -58,7 +58,7 @@ Also logs are available at table logs
 Some Screenshots:
 </b>
 
-![Optional Text](../master/Screenshots/1.png)
-![Optional Text](../master/myFolder/2.png)
-![Optional Text](../master/myFolder/3.png)
-![Optional Text](../master/myFolder/4.png)
+![1 screen](../master/Screenshots/1.png)
+![2 screen](../master/Screenshots/2.png)
+![3 screen](../master/Screenshots/3.png)
+![4 screen](../master/Screenshots/4.png)
