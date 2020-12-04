@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-16"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <dest>/home/sycale/Documents/BSUiR/3_sem/ISP/4lab</dest>
+  <dataSource>locahost</dataSource>
+  <password>123</password>
+</config>

@@ -1,0 +1,19 @@
+<logs>
+  <row value="logs" />
+  <row value="The ' ' character, hexadecimal value 0x20, cannot be included in a name." />
+  <row value="The ' ' character, hexadecimal value 0x20, cannot be included in a name." />
+  <row value="Invalid object name 'logsf'." />
+  <row value="Could not find a part of the path '/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/Config'." />
+  <row value="table users is empty" />
+  <row value="table testtable is empty" />
+  <row value="table users is empty" />
+  <row value="table testtable is empty" />
+  <row value="Invalid object name 'log'." />
+  <row value="table users is empty" />
+  <row value="table testtable is empty" />
+  <row value="table users is empty" />
+  <row value="Invalid object name 'logsf'." />
+  <row value="table testtable is empty" />
+  <row value="table is empty" />
+  <row value="table users is empty" />
+</logs>
