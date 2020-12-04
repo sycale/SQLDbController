@@ -50,7 +50,6 @@ namespace UserUtils {
             } catch (Exception e) {
                 HandleError (e.Message);
             }
-            Console.WriteLine (config.dest);
             DisplayList<string> (tables);
             Console.WriteLine ("Put a table name to continue proccessing table");
             DisplayTableAbilities (Convert.ToInt32 (Console.ReadLine ()));
@@ -88,9 +87,15 @@ namespace UserUtils {
 
             switch (choice) {
                 case 1:
-                    DisplayDataInTable (tables[number]);
+                    try {
+                        DisplayDataInTable (tables[number]);
+                    } catch (Exception e) {
+                        HandleError (e.Message);
+                    }
                     Console.WriteLine ("Press any key to continue");
+
                     Console.ReadKey (true);
+
                     goto ChooseStamp;
                 case 2:
                     try {
@@ -101,7 +106,9 @@ namespace UserUtils {
                     } catch (Exception e) {
                         HandleError (e.Message);
                     }
-                    Console.ReadLine ();
+                    Console.WriteLine ("Press any key to continue");
+
+                    Console.ReadKey (true);
                     goto ChooseStamp;
                 case 3:
                     try {
@@ -112,7 +119,9 @@ namespace UserUtils {
                     } catch (Exception e) {
                         HandleError (e.Message);
                     }
-                    Console.ReadLine ();
+                    Console.WriteLine ("Press any key to continue");
+
+                    Console.ReadKey (true);
                     goto ChooseStamp;
                 case 4:
                     try {
@@ -123,7 +132,9 @@ namespace UserUtils {
                     } catch (Exception e) {
                         HandleError (e.Message);
                     }
-                    Console.ReadLine ();
+                    Console.WriteLine ("Press any key to continue");
+
+                    Console.ReadKey (true);
                     goto ChooseStamp;
                 case 5:
                     DisplayMainMenu ();

@@ -1,6 +1,6 @@
 Data manager, that controls localhost sql server, abilities (insert, delete, view, convert into xml table values). This app can be perfomed as a service by executing following commands:
 <code>
-sudo mkdir /srv/4lab # Create directory /srv/HelloWorld
+sudo mkdir /srv/4lab # Create directory /srv/4lab
 sudo chown yourusername /srv/4lab # Assign ownership to yourself of the directory
 dotnet publish -c Release -o /srv/4lab
 </code>
@@ -53,3 +53,12 @@ WantedBy=multi-user.target
 <b>
 Also logs are available at table logs
 </b>
+
+<b>
+Some Screenshots:
+</b>
+
+![Optional Text](../master/Screenshots/1.png)
+![Optional Text](../master/myFolder/2.png)
+![Optional Text](../master/myFolder/3.png)
+![Optional Text](../master/myFolder/4.png)
