@@ -44,15 +44,40 @@ namespace UserUtils {
         }
         public static void DisplayMainMenu () {
             Console.Clear ();
+            UpdateTables ();
             try {
                 config = Config.DetectConfig ();
 
             } catch (Exception e) {
                 HandleError (e.Message);
             }
-            DisplayList<string> (tables);
-            Console.WriteLine ("Put a table name to continue proccessing table");
-            DisplayTableAbilities (Convert.ToInt32 (Console.ReadLine ()));
+            mainMenu:
+                Console.WriteLine ("0. See existing tables");
+            Console.WriteLine ("1. Create a new table");
+            Console.WriteLine ("2. Quit the program");
+            int command = Convert.ToInt32 (Console.ReadLine ());
+            switch (command) {
+                case 0:
+                    DisplayList<string> (tables);
+                    Console.WriteLine ($"{tables.Count}. Return");
+                    int choice = Convert.ToInt32 (Console.ReadLine ());
+                    if (choice == tables.Count) {
+                        DisplayMainMenu ();
+                    } else {
+                        DisplayTableAbilities (choice);
+                    }
+                    break;
+                case 1:
+                    HandleCreateTable ();
+                    break;
+                case 2:
+                    System.Environment.Exit (1);
+                    break;
+                default:
+                    Console.WriteLine ("you've picked a wrong number, try again");
+                    goto mainMenu;
+
+            }
         }
 
         static void handleListToXml (string table) {
@@ -73,7 +98,19 @@ namespace UserUtils {
             }
         }
 
+        static void HandleCreateTable () {
+            Console.WriteLine ("Let me know the table name");
+            string tableName = Console.ReadLine ();
+            try {
+                DataManager.CreateTable (tableName);
+            } catch (SqlException e) {
+                HandleError (e.Message);
+            }
+            DisplayMainMenu ();
+        }
+
         static void DisplayTableAbilities (int number) {
+            Console.Clear ();
             if (number > tables.Count - 1 || number < 0) throw new Exception ($"your index {number} is out of range {tables.Count - 1}");
             ChooseStamp:
                 Console.Clear ();

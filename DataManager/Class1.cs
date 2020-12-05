@@ -40,7 +40,7 @@ namespace DbUtils {
         public static void InsertValue(string table, string value) {
             using(SqlConnection connection = new SqlConnection(GetConnectionString())) {
                 connection.Open();
-                string query = $"USE LAB; INSERT INTO {table} (id, value) VALUES ({value.GetHashCode () + rnd.Next()}, '{value.Replace("'", "''")}');";
+                string query = $"USE LAB; INSERT INTO {table} (id, value) VALUES ({value.GetHashCode () + rnd.Next ()}, '{value.Replace("'", "''")}');";
                 SqlCommand command = new SqlCommand (query, connection);
                 command.ExecuteNonQuery ();
             }
@@ -50,6 +50,15 @@ namespace DbUtils {
             using (SqlConnection connection = new SqlConnection (GetConnectionString ())) {
                 connection.Open ();
                 string query = $"USE LAB; DELETE FROM {table} WHERE value='{value.Replace("'", "''")}';";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public static void CreateTable(string tableName) {
+            using(SqlConnection connection = new SqlConnection(GetConnectionString())) {
+                connection.Open();
+                string query = $"USE LAB; CREATE TABLE {tableName} (id int primary key not null, value varchar (255));";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
             }
