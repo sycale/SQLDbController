@@ -1,0 +1,9 @@
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/DataManager/bin/Realese/netcoreapp3.1/DataManager.deps.json
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/DataManager/bin/Realese/netcoreapp3.1/DataManager.dll
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/DataManager/bin/Realese/netcoreapp3.1/DataManager.pdb
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/DataManager/obj/Realese/netcoreapp3.1/DataManager.csprojAssemblyReference.cache
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/DataManager/obj/Realese/netcoreapp3.1/DataManager.AssemblyInfoInputs.cache
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/DataManager/obj/Realese/netcoreapp3.1/DataManager.AssemblyInfo.cs
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/DataManager/obj/Realese/netcoreapp3.1/DataManager.csproj.CoreCompileInputs.cache
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/DataManager/obj/Realese/netcoreapp3.1/DataManager.dll
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/DataManager/obj/Realese/netcoreapp3.1/DataManager.pdb

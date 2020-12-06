@@ -1,0 +1,14 @@
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/UserInterface/bin/Realese/netcoreapp3.1/UserInterface.deps.json
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/UserInterface/bin/Realese/netcoreapp3.1/UserInterface.dll
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/UserInterface/bin/Realese/netcoreapp3.1/UserInterface.pdb
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/UserInterface/bin/Realese/netcoreapp3.1/ConfigManager.dll
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/UserInterface/bin/Realese/netcoreapp3.1/DataManager.dll
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/UserInterface/bin/Realese/netcoreapp3.1/DataManager.pdb
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/UserInterface/bin/Realese/netcoreapp3.1/ConfigManager.pdb
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/UserInterface/obj/Realese/netcoreapp3.1/UserInterface.csprojAssemblyReference.cache
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/UserInterface/obj/Realese/netcoreapp3.1/UserInterface.AssemblyInfoInputs.cache
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/UserInterface/obj/Realese/netcoreapp3.1/UserInterface.AssemblyInfo.cs
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/UserInterface/obj/Realese/netcoreapp3.1/UserInterface.csproj.CoreCompileInputs.cache
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/UserInterface/obj/Realese/netcoreapp3.1/UserInterface.csproj.CopyComplete
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/UserInterface/obj/Realese/netcoreapp3.1/UserInterface.dll
+/home/sycale/Documents/BSUiR/3_sem/ISP/4lab/UserInterface/obj/Realese/netcoreapp3.1/UserInterface.pdb

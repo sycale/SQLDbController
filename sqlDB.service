@@ -1,0 +1,13 @@
+[Unit]
+Description=sqlDB application
+
+[Service]
+ExecStart=/srv/sqlBD/Main
+SyslogIdentifier=sqlBD
+
+User=sycale
+
+Environment=DOTNET_ROOT=/opt/rh/rh-dotnet31/root/usr/lib64/dotnet  
+
+[Install]
+WantedBy=multi-user.target

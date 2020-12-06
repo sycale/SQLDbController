@@ -54,11 +54,3 @@ WantedBy=multi-user.target
 Also logs are available at table logs
 </b>
 
-<b>
-Some Screenshots:
-</b>
-
-![1 screen](../master/Screenshots/1.png)
-![2 screen](../master/Screenshots/2.png)
-![3 screen](../master/Screenshots/3.png)
-![4 screen](../master/Screenshots/4.png)
