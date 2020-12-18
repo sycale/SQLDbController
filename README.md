@@ -1,11 +1,39 @@
-<b>
-I compiled this project and set it to be as a service, you can check sqlDB.service file, abilities (see tables, create tables, insert value, delete and conver tables values into xml doc and save it as a config dest is set)
-</b>
+Результаты:
 
-<b> 
-All actions with db in a program, i've prooved in a video
-</b>
-
-<b> 
-Also all the mistaked and errors, that've occured during program, are saved in a logs tables, which holds all the mistakes, video is inside the repo
-</b>
+<ul>
+    <li> Перевел всевозможные функции считывания информации с базы данных и работу с ними в async/await формат по методолгии TAP
+    вот пример:
+    ```csharp
+        public static Task<int> AddLog (string Message) {
+            return Task.Run (() => {
+                using (SqlConnection connection = new SqlConnection (GetConnectionString ())) {
+                    connection.Open ();
+                    string query = $"USE LAB; INSERT INTO logs (id, message) VALUES ({Message.GetHashCode() + rnd.Next()}, '{Message.Replace("'", "''")}');";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    return command.ExecuteNonQuery();
+                }
+            });
+        }
+    ```
+    В последствии он вызывается вот так:
+    ```csharp
+        static async void HandleError (string ErrorMessage) {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine (ErrorMessage);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            await DataManager.AddLog (ErrorMessage);
+        }
+    ```
+      </li>
+      <li>
+        Выполнил потоковое разделение программы, где новый поток запускается для того, чтобы счесть таблицы из базы данных, вот пример:
+        ```csharp
+        Thread UpdateTablesThread = new Thread (new ThreadStart (UpdateTables));
+        ```
+        В последствии вызывается, соответственно, так:
+        ```csharp
+        UpdateTablesThread.Start();
+        UpdateTablesThread.Join();
+        ```
+      </li>
+</ul>

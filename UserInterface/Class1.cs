@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 using ConfigManager;
 using DbUtils;
@@ -10,23 +12,25 @@ using DbUtils;
 namespace UserUtils {
     public class UserInterface {
 
+        Thread UpdateTablesThread = new Thread (new ThreadStart (UpdateTables)).Start ();
+
         static dynamic config;
 
-        static List<string> tables = DataManager.GetAllTables ();
+        static List<string> tables = UpdateTablesThread.Join ();
 
         static void PrintDbSize () {
             Console.WriteLine (tables.Count);
         }
 
-        static void UpdateTables () {
-            tables = DataManager.GetAllTables ();
+        static async void UpdateTables () {
+            tables = await DataManager.GetAllTables ();
         }
 
-        static void HandleError (string text) {
+        static async void HandleError (string text) {
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine (text);
             Console.ForegroundColor = ConsoleColor.Gray;
-            DataManager.AddLog (text);
+            await DataManager.AddLog (text);
         }
 
         static void DisplayList<T> (List<T> listToDisplay) {
@@ -44,7 +48,7 @@ namespace UserUtils {
         }
         public static void DisplayMainMenu () {
             Console.Clear ();
-            UpdateTables ();
+            UpdateTablesThread.Join ();
             try {
                 config = Config.DetectConfig ();
 
@@ -80,17 +84,17 @@ namespace UserUtils {
             }
         }
 
-        static void handleListToXml (string table) {
-            var branchesXml = DataManager.GetTableValues (table).Select (i => new XElement ("row",
+        static async void handleListToXml (string table) {
+            List<string> list = await DataManager.GetTableValues (table);
+            var branchesXml = list.Select (i => new XElement ("row",
                 new XAttribute ("value", i)));
             var bodyXml = new XElement (table, branchesXml);
             File.WriteAllText (Path.Combine (config.dest, "file.xml"), bodyXml.ToString ());
         }
 
-        static void DisplayDataInTable (string table) {
+        static async void DisplayDataInTable (string table) {
             try {
-                List<string> tempList = DataManager.GetTableValues (table);
-                DisplayList<string> (tempList);
+                DisplayList<string> (await DataManager.GetTableValues (table));
             } catch (System.Data.SqlClient.SqlException e) {
                 HandleError (e.Message);
             } catch (Exception e) {
@@ -109,7 +113,7 @@ namespace UserUtils {
             DisplayMainMenu ();
         }
 
-        static void DisplayTableAbilities (int number) {
+        static async void DisplayTableAbilities (int number) {
             Console.Clear ();
             if (number > tables.Count - 1 || number < 0) throw new Exception ($"your index {number} is out of range {tables.Count - 1}");
             ChooseStamp:
@@ -137,7 +141,7 @@ namespace UserUtils {
                 case 2:
                     try {
                         string dataToInsert = Console.ReadLine ();
-                        DataManager.InsertValue (tables[number], dataToInsert);
+                        await DataManager.InsertValue (tables[number], dataToInsert);
                     } catch (SqlException e) {
                         HandleError (e.Message);
                     } catch (Exception e) {
@@ -150,7 +154,7 @@ namespace UserUtils {
                 case 3:
                     try {
                         string dataToInsert = Console.ReadLine ();
-                        DataManager.DeleteValue (tables[number], dataToInsert);
+                        await DataManager.DeleteValue (tables[number], dataToInsert);
                     } catch (SqlException e) {
                         HandleError (e.Message);
                     } catch (Exception e) {
