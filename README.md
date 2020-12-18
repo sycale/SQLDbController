@@ -3,7 +3,7 @@
 <ul>
     <li> Перевел всевозможные функции считывания информации с базы данных и работу с ними в async/await формат по методолгии TAP
     вот пример:
-    ```csharp
+    ```C#
         public static Task<int> AddLog (string Message) {
             return Task.Run (() => {
                 using (SqlConnection connection = new SqlConnection (GetConnectionString ())) {
@@ -16,7 +16,7 @@
         }
     ```
     В последствии он вызывается вот так:
-    ```csharp
+    ```C#
         static async void HandleError (string ErrorMessage) {
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine (ErrorMessage);
@@ -27,11 +27,11 @@
       </li>
       <li>
         Выполнил потоковое разделение программы, где новый поток запускается для того, чтобы счесть таблицы из базы данных, вот пример:
-        ```csharp
+        ```C#
         Thread UpdateTablesThread = new Thread (new ThreadStart (UpdateTables));
         ```
         В последствии вызывается, соответственно, так:
-        ```csharp
+        ```C#
         UpdateTablesThread.Start();
         UpdateTablesThread.Join();
         ```
